@@ -1,0 +1,10 @@
+name: StellarEvents
+version: 1.0
+author: Zach
+main: us.zacharynickels.stellarevents.StellarEvents
+description: A basic event management plugin [StellarMC custom]
+
+commands:
+  event:
+    usage: /event [Start|End] {event-name}
+    description: Initializes the event creation or deletion menu
