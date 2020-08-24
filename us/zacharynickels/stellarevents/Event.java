@@ -27,17 +27,18 @@ public class Event {
                 loopWindow = Validator.parseTime(args[6]);
                 repeat = Boolean.parseBoolean(args[7]);
 
+
                 //De-limit commands with commas into an array
-                String[] argCmds = args[8].split(",[ ]*");
+                /*String[] argCmds = args[8].split(",[ ]*");
                 cmds = new ArrayList<>();
-                for (String c : argCmds) cmds.add(c);
+                for (String c : argCmds) cmds.add(c);*/
 
                 //Register all fields to file
 
-                if (args.length==9) {
+                /*if (args.length==9) {
                     broadcast = args[9];
                     //Register field to file
-                }
+                }*/
             }
         } else {
             //Error
