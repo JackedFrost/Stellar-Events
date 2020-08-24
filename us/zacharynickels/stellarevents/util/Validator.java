@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.format.ResolverStyle;
 import java.util.Locale;
 
 public class Validator {
@@ -38,7 +37,7 @@ public class Validator {
 
     public static boolean isValidBoolean(String s) {
 
-        if (s.equalsIgnoreCase("true")) {
+        if (s.equalsIgnoreCase("true") || s.equalsIgnoreCase("false")) {
             System.out.println("valid bool");
             return true;
         }

@@ -1,18 +1,22 @@
 package us.zacharynickels.stellarevents;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import us.zacharynickels.stellarevents.util.Validator;
+import us.zacharynickels.stellarevents.util.ConfigUtil;
 
 public class StellarEvents extends JavaPlugin {
+    public static StellarEvents plugin;
+
+    public StellarEvents() {
+        plugin=this;
+    }
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        ConfigUtil.createEventsConfig();
+
         System.out.println("StellarEvents - Enabled successfully.");
         this.getCommand("event").setExecutor(new EventCMD());
-        String tDate = "01/02/2020 05:30:45";
-        String tTime = "05:03:30";
-        Validator.isValidDateTime(tDate);
-        Validator.isValidTime(tTime);
     }
 
     @Override

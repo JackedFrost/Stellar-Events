@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 
 public class Event {
 
-    String name;
-    String broadcast;
-    LocalDateTime startDateTime;
-    LocalDateTime endDateTime;
-    LocalTime loopWindow;
-    boolean repeat;
-    ArrayList<String> cmds;
+    private String name;
+    private String broadcast;
+    private LocalDateTime startDateTime;
+    private LocalDateTime endDateTime;
+    private LocalTime loopWindow;
+    private boolean repeat;
+    private ArrayList<String> cmds;
 
     Event(String[] args) {
         if (true/*args.length == 8||args.length == 9*/) {
