@@ -10,7 +10,7 @@ public class EventCMD implements CommandExecutor {
 
         switch (args[0]) {
             case "create":
-                Event.createEvent(args);
+                Event event = new Event(args);
                 break;
             case "remove":
                 break;

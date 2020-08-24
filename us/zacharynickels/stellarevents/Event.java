@@ -2,46 +2,45 @@ package us.zacharynickels.stellarevents;
 
 import us.zacharynickels.stellarevents.util.Validator;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class Event {
-    public static void createEvent(String[] args) {
-        if (args.length == 5||args.length == 6) {
-            String eventName=args[0];
+
+    String name;
+    String broadcast;
+    LocalDateTime startDateTime;
+    LocalDateTime endDateTime;
+    LocalTime loopWindow;
+    boolean repeat;
+    ArrayList<String> cmds;
+
+    Event(String[] args) {
+        if (true/*args.length == 8||args.length == 9*/) {
             //Ensure all fields are valid
-            if (isValidEvent(args)) {
+            if (Validator.isValidEvent(args)) {
                 //Parse
-                LocalDateTime startTime = Validator.parseDateTime(args[2]);
-                LocalDateTime endTime = Validator.parseDateTime(args[3]);
-                LocalTime loopWindow = Validator.parseTime(args[4]);
-                boolean eventRepeat=Boolean.parseBoolean(args[5]);
+                name=args[1];
+                startDateTime = Validator.parseDateTime(args[2]+" "+args[3]);
+                endDateTime = Validator.parseDateTime(args[4]+" "+args[5]);
+                loopWindow = Validator.parseTime(args[6]);
+                repeat = Boolean.parseBoolean(args[7]);
 
                 //De-limit commands with commas into an array
-                String[] argCmds = args[6].split(",[ ]*");
-                ArrayList<String> cmds = new ArrayList<String>();
+                String[] argCmds = args[8].split(",[ ]*");
+                cmds = new ArrayList<>();
                 for (String c : argCmds) cmds.add(c);
 
                 //Register all fields to file
 
-                if (args.length==7) {
-                    String broadcast = args[7];
+                if (args.length==9) {
+                    broadcast = args[9];
                     //Register field to file
                 }
             }
         } else {
             //Error
         }
-    }
-
-    private static boolean isValidEvent(String[] args) {
-        if (Validator.isValidDateTime(args[2])&&
-                Validator.isValidDateTime(args[3])&&
-                Validator.isValidTime(args[4])&&
-                Validator.isValidBoolean(args[5]))
-            return true;
-        else
-            return false;
     }
 }
