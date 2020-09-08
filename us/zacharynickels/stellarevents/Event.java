@@ -5,6 +5,11 @@ import us.zacharynickels.stellarevents.util.Validator;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
 
 public class Event {
 
@@ -39,6 +44,10 @@ public class Event {
                     broadcast = args[9];
                     //Register field to file
                 }*/
+        public void onEntityHit(EntityDamageByEntityEvent event){
+            if (event.getDamager() instanceof Player){
+                Player player = (Player)event.getDamager();
+                player.sendMessage("Whoa Mama!!");
             }
         } else {
             //Error
